@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.unoesc.trabalhofinal.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_categoria"
+        android:name="com.unoesc.trabalhofinal.ui.categoria.CategoriaFragment"
+        android:label="@string/menu_categoria"
+        tools:layout="@layout/fragment_categoria" />
+
+    <fragment
+        android:id="@+id/nav_entrada"
+        android:name="com.unoesc.trabalhofinal.ui.entrada.EntradaFragment"
+        android:label="@string/menu_entrada"
+        tools:layout="@layout/fragment_entrada" />
+
+    <fragment
+        android:id="@+id/nav_saida"
+        android:name="com.unoesc.trabalhofinal.ui.saida.SaidaFragmant"
+        android:label="@string/menu_saida"
+        tools:layout="@layout/fragment_categoria" />
+
+    <fragment
+        android:id="@+id/nav_integracaobancaria"
+        android:name="com.unoesc.trabalhofinal.ui.integracaobancaria.IntegracaoBancariaFragmant"
+        android:label="@string/menu_integracaobancaria"
+        tools:layout="@layout/fragment_categoria" />
+</navigation>
