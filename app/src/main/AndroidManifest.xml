@@ -22,6 +22,22 @@
         <activity
             android:name=".ui.categoria.CadastroActivity"
             android:label="Categoria" />
+        <activity
+            android:name=".ui.entrada.CadastroActivity"
+            android:label="Entrada" />
+        <activity
+            android:name=".ui.saida.CadastroActivity"
+            android:label="Saida" />
+        <provider
+            android:authorities="${applicationId}.provider"
+            android:name="androidx.core.content.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"
+                />
+        </provider>
     </application>
 
 </manifest>

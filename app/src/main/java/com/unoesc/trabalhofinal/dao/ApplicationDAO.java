@@ -15,7 +15,7 @@ public abstract class ApplicationDAO<T extends Entity> extends SQLiteOpenHelper 
     //region Constructors
 
     public ApplicationDAO(Context context) {
-        super(context, "TrabalhoFinal", null, 1);
+        super(context, "TrabalhoFinal", null, 8);
     }
 
     //endregion
@@ -29,23 +29,6 @@ public abstract class ApplicationDAO<T extends Entity> extends SQLiteOpenHelper 
     protected abstract T CriarRegistroListagem(Cursor c);
 
     protected abstract void PreencherValoresAtualizacao(ContentValues valores, T entity);
-
-    //endregion
-
-    //region Public Override Methods
-
-    @Override
-    public void onCreate(SQLiteDatabase db) {
-        String sqlCategoria = "CREATE TABLE Categoria(Id INTEGER PRIMARY KEY, Descricao TEXT NOT NULL, Observacao TEXT);";
-        db.execSQL(sqlCategoria);
-    }
-
-    @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        String sql = "DROP TABLE IF EXISTS pessoa";
-        db.execSQL(sql);
-        onCreate(db);
-    }
 
     //endregion
 

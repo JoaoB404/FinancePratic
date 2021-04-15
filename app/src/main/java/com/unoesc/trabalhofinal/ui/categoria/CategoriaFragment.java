@@ -26,15 +26,12 @@ import java.util.List;
 
 public class CategoriaFragment extends Fragment {
 
-    private CategoriaViewModel galleryViewModel;
     private Button botao_cadastrar;
     private ListView lista;
     private TextView text_list_empty;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        galleryViewModel =
-                new ViewModelProvider(this).get(CategoriaViewModel.class);
 
         View root = inflater.inflate(R.layout.fragment_categoria, container, false);
 

@@ -1,4 +1,4 @@
-package com.unoesc.trabalhofinal.ui.entrada;
+package com.unoesc.trabalhofinal.ui.saida;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,31 +16,30 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 
 import com.unoesc.trabalhofinal.R;
-import com.unoesc.trabalhofinal.dao.EntradaDAO;
-import com.unoesc.trabalhofinal.models.Entrada;
+import com.unoesc.trabalhofinal.dao.SaidaDAO;
+import com.unoesc.trabalhofinal.models.Saida;
 
 import java.util.List;
 
-public class EntradaFragment extends Fragment {
+public class SaidaFragment extends Fragment {
     private Button botao_cadastrar;
     private ListView lista;
     private TextView text_list_empty;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_entrada, container, false);
+        View root = inflater.inflate(R.layout.fragment_saida, container, false);
 
-        lista = root.findViewById(R.id.entradaList);
+        lista = root.findViewById(R.id.saidaList);
         text_list_empty = root.findViewById(R.id.textListEmpty);
         botao_cadastrar = root.findViewById(R.id.btnCadastrar);
 
         botao_cadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent abrirCadastro = new Intent(getActivity(), com.unoesc.trabalhofinal.ui.entrada.CadastroActivity.class);
+                Intent abrirCadastro = new Intent(getActivity(), CadastroActivity.class);
                 startActivity(abrirCadastro);
             }
         });
@@ -48,9 +47,9 @@ public class EntradaFragment extends Fragment {
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Entrada dado = (Entrada) lista.getItemAtPosition(position);
+                Saida dado = (Saida) lista.getItemAtPosition(position);
                 Intent abrirEdicao = new Intent(getContext(), CadastroActivity.class);
-                abrirEdicao.putExtra("Entrada", dado);
+                abrirEdicao.putExtra("Saida", dado);
                 startActivity(abrirEdicao);
             }
         });
@@ -60,14 +59,13 @@ public class EntradaFragment extends Fragment {
         return root;
     }
 
-
     public void listarEntradas(){
-        EntradaDAO dao = new EntradaDAO(getContext());
-        List<Entrada> entrada = dao.Listar();
-        ArrayAdapter<Entrada> adapter = new ArrayAdapter<Entrada>(getContext(), android.R.layout.simple_list_item_1, entrada);
+        SaidaDAO dao = new SaidaDAO(getContext());
+        List<Saida> entrada = dao.Listar();
+        ArrayAdapter<Saida> adapter = new ArrayAdapter<Saida>(getContext(), android.R.layout.simple_list_item_1, entrada);
 
         if(entrada.isEmpty())
-            text_list_empty.setText("Não há nenhuma entrada cadastrada");
+            text_list_empty.setText("Não há nenhuma saída cadastrada");
         else
             text_list_empty.setText("");
 
@@ -88,9 +86,9 @@ public class EntradaFragment extends Fragment {
             public boolean onMenuItemClick(MenuItem menuItem) {
                 AdapterView.AdapterContextMenuInfo dados = (AdapterView.AdapterContextMenuInfo) menuInfo;
 
-                Entrada dado = (Entrada) lista.getItemAtPosition(dados.position);
+                Saida dado = (Saida) lista.getItemAtPosition(dados.position);
 
-                EntradaDAO dao = new EntradaDAO(getContext());
+                SaidaDAO dao = new SaidaDAO(getContext());
                 dao.Remover(dado);
                 listarEntradas();
 

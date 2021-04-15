@@ -1,14 +1,11 @@
 package com.unoesc.trabalhofinal.models;
 
-import android.text.Editable;
-
-import java.util.Date;
-
-public class Entrada extends Entity {
-    private Long categoriaId;
+public class Saida extends Entity {
+    private long categoriaId;
     private String data;
     private float valor;
     private String observacao;
+    private String caminhoComprovante;
 
     @Override
     protected String ObterDescricaoListagem() {
@@ -39,11 +36,19 @@ public class Entrada extends Entity {
         this.data = data;
     }
 
-    public Long getCategoriaId() {
+    public long getCategoriaId() {
         return categoriaId;
     }
 
-    public void setCategoriaId(Long categoriaId) {
+    public void setCategoriaId(long categoriaId) {
         this.categoriaId = categoriaId;
+    }
+
+    public String getCaminhoComprovante() {
+        return caminhoComprovante;
+    }
+
+    public void setCaminhoComprovante(String caminhoComprovante) {
+        this.caminhoComprovante = caminhoComprovante;
     }
 }

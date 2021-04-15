@@ -25,7 +25,7 @@
 
     <fragment
         android:id="@+id/nav_saida"
-        android:name="com.unoesc.trabalhofinal.ui.saida.SaidaFragmant"
+        android:name="com.unoesc.trabalhofinal.ui.saida.SaidaFragment"
         android:label="@string/menu_saida"
         tools:layout="@layout/fragment_categoria" />
 
